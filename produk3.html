@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Detail Produk</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .bg-bright-red {
+      background-color: #FF4D4D;
+    }
+    .hover-bright-red:hover {
+      background-color: #FF6666;
+    }
+    .glow-button {
+      box-shadow: 0 0 10px rgba(255, 77, 77, 0.7), 0 0 40px rgba(255, 77, 77, 0.5);
+      transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    }
+    .glow-button:hover {
+      box-shadow: 0 0 20px rgba(255, 77, 77, 0.9), 0 0 50px rgba(255, 77, 77, 0.7);
+      background-color: #FF6666;
+      transform: scale(1.05);
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans">
+  <!-- Header -->
+  <header class="bg-gray-800 text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Detail Produk</h1>
+      <a 
+  href="home.html" 
+  class="bg-gray-700 hover:bg-bright-red text-white p-2 rounded-full transition duration-300 flex items-center w-10 h-10 justify-center shadow-lg"
+  title="Kembali ke Beranda"
+>
+  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-6 h-6">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M3 12l9-9m0 0l9 9m-9-9v18" />
+  </svg>
+</a>
+
+    </div>
+  </header>
+
+  <!-- Detail Produk -->
+  <main class="container mx-auto my-6 px-4">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <!-- Gambar Produk -->
+      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden">
+        <img src="images/gambar3.png" alt="Produk" class="w-full object-cover">
+      </div>
+      <!-- Informasi Produk -->
+      <div class="flex flex-col justify-center bg-gray-800 p-6 rounded-lg shadow-lg">
+        <h2 class="text-2xl font-bold mb-4">Nama Produk: Panel Hosting</h2>
+        <p class="text-gray-300 mb-4">Panel petrodactl di buat dengan vps legal atau resmi dapat di gunakan untuk bot whatsapp maupun telegram </p>
+        <p class="text-lg font-semibold text-bright-red mb-4">Harga: Rp 5.000 - 15.000</p>
+        <p class="text-sm text-gray-400 mb-4">
+          untuk garansi kami brani ganti panel sebelum 30 hari jika menaati rules panel
+        </p>
+        <!-- Tombol Beli -->
+        <button 
+  onclick="window.location.href='https://wa.me/6285727785143?text=info+panel+bang';" 
+  class="bg-bright-red text-white px-4 py-2 rounded-lg glow-button transition"
+>
+  Beli Sekarang
+</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

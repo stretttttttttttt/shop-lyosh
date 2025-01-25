@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop Dark with Slider</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Warna tema red cerah */
+    .bg-bright-red {
+      background-color: #FF4D4D;
+    }
+    .hover-bright-red:hover {
+      background-color: #FF6666;
+    }
+    body.fade-out {
+    opacity: 0;
+    transition: opacity 0.5s ease;
+  }
+    /* Tombol dengan efek glow dan transisi smooth */
+    .glow-button {
+      box-shadow: 0 0 10px rgba(255, 77, 77, 0.7), 0 0 40px rgba(255, 77, 77, 0.5);
+      transition: background-color 0.3s ease, transform 0.2s ease-in-out;
+    }
+    .glow-button:hover {
+      box-shadow: 0 0 20px rgba(255, 77, 77, 0.9), 0 0 50px rgba(255, 77, 77, 0.7);
+      background-color: #FF6666; /* Ganti warna latar belakang saat hover */
+      transform: scale(1.05); /* Efek zoom saat hover */
+    }
+    .glow-button:active {
+      transform: scale(0.98); /* Efek saat tombol ditekan */
+    }
+    /* Transisi slider */
+    .slide {
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+    }
+    .slide.active {
+      opacity: 1;
+    }
+    /* Radius bingkai */
+    .custom-radius {
+      border-radius: 20px; /* Ubah nilai sesuai kebutuhan */
+    }
+  </style>
+</head>
+<body class="bg-gray-900 text-gray-200 font-sans">
+  <!-- Header dengan Fitur Search -->
+  <header class="bg-gray-800 text-white p-4 shadow-md">
+    <div class="container mx-auto flex justify-center">
+      <div class="relative w-full max-w-lg">
+        <input 
+          type="text" 
+          placeholder="Cari nama produk..." 
+          class="w-full bg-gray-700 text-gray-300 rounded-full px-4 py-2 pl-10 focus:outline-none focus:ring-2 focus:ring-bright-red" 
+        />
+        <i class="fas fa-search absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400"></i>
+      </div>
+    </div>
+  </header>
+
+  <!-- Slider -->
+  <div class="container mx-auto my-6 px-4">
+    <div class="relative">
+      <div class="overflow-hidden custom-radius shadow-lg">
+        <!-- Gambar slider -->
+        <div class="relative w-full h-0 pb-[56.25%] bg-gray-800">
+          <img 
+            src="images/gambar1.png" 
+            alt="Gambar 1" 
+            class="absolute w-full h-full object-cover slide active" 
+          />
+          <img 
+            src="images/gambar2.png" 
+            alt="Gambar 2" 
+            class="absolute w-full h-full object-cover slide" 
+          />
+           <img 
+            src="images/gambar3.png" 
+            alt="Gambar 3" 
+            class="absolute w-full h-full object-cover slide active" 
+          />
+          <img 
+            src="images/gambar4.png" 
+            alt="Gambar 4" 
+            class="absolute w-full h-full object-cover slide" 
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Konten -->
+  <main class="container mx-auto my-6 px-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+      <!-- Produk 1 -->
+      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition">
+        <img src="images/gambar1.png" alt="Thumb Youtube" class="w-full">
+        <div class="p-4 text-center">
+          <h3 class="font-semibold mb-2 text-lg text-gray-200">Thumb Youtube</h3></h3>
+         <a 
+  href="produk1.html" 
+  class="bg-bright-red text-white px-4 py-2 rounded-lg glow-button transition"
+>
+  Beli Sekarang
+</a>
+        </div>
+      </div>
+
+      <!-- Produk 2 -->
+      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition">
+        <img src="images/gambar2.png" alt="Thumb Youtube" class="w-full">
+        <div class="p-4 text-center">
+          <h3 class="font-semibold mb-2 text-lg text-gray-200">Nomor kosong</h3>
+          <a 
+  href="produk2.html" 
+  class="bg-bright-red text-white px-4 py-2 rounded-lg glow-button transition"
+>
+  Beli Sekarang
+</a>
+        </div>
+      </div>
+            <!-- Produk 3 -->
+      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition">
+        <img src="images/gambar3.png" alt="Thumb Youtube" class="w-full">
+        <div class="p-4 text-center">
+          <h3 class="font-semibold mb-2 text-lg text-gray-200">Panel hosting</h3></h3>
+          <a 
+            href="produk3.html" 
+            target="_blank" 
+            class="bg-bright-red text-white px-4 py-2 rounded-lg glow-button transition"
+          >
+            Beli Sekarang
+          </a>
+        </div>
+      </div>
+
+      <!-- Produk 4 -->
+      <div class="bg-gray-800 rounded-lg shadow-lg overflow-hidden hover:shadow-2xl transition">
+        <img src="images/gambar4.png" alt="Thumb Youtube" class="w-full">
+        <div class="p-4 text-center">
+          <h3 class="font-semibold mb-2 text-lg text-gray-200">Vps digital</h3>
+          <a 
+            href="produk4.html" 
+            target="_blank" 
+            class="bg-bright-red text-white px-4 py-2 rounded-lg glow-button transition"
+          >
+            Beli Sekarang
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <!--
+  <footer class="bg-gray-800 text-gray-400 text-center py-4">
+    <p>&copy; 2025 Shop Belanja. All rights reserved.</p>
+  </footer>-->
+
+  <!-- Script Slider -->
+  <script>
+  document.addEventListener('DOMContentLoaded', () => {
+  const links = document.querySelectorAll('a');
+
+  links.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+
+      // Cek apakah href adalah link internal
+      if (href && !href.startsWith('http')) {
+        e.preventDefault(); // Mencegah default behavior
+        document.body.classList.add('fade-out');
+
+        setTimeout(() => {
+          window.location.href = href;
+        }, 500); // Waktu harus sesuai dengan durasi transisi CSS
+      }
+    });
+  });
+});
+    const slides = document.querySelectorAll('.slide');
+    let currentSlide = 0;
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+      });
+    }
+
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 2500); // 3 detik per slide
+  </script>
+</body>
+</html>
