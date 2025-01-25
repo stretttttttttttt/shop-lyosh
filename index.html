@@ -5,14 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Website Maintenance</title>
     <style>
-    body {
-        transition: opacity 0.5s ease-in-out; /* Efek transisi lebih halus */
-        opacity: 1;
-    }
-
-    body.fade-out {
-        opacity: 0;
-    }
         body {
             font-family: Arial, sans-serif;
             margin: 0;
@@ -27,16 +19,60 @@
             position: relative;
             overflow: hidden;
         }
-        #blurOverlay {
+        #loadingOverlay {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            backdrop-filter: blur(3px);
-            -webkit-backdrop-filter: blur(3px);
-            z-index: 0;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
+
+        .dots {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dot {
+            width: 15px;
+            height: 15px;
+            background-color: #ff4d4d;
+            border-radius: 50%;
+            margin: 0 5px;
+            animation: bounce 1.5s infinite ease-in-out;
+        }
+
+        .dot:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .dot:nth-child(2) {
+            animation-delay: 0.3s;
+        }
+
+        .dot:nth-child(3) {
+            animation-delay: 0.6s;
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        body.fade-out {
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
         .container {
             position: relative;
             background-color: rgba(47, 47, 47, 0.8);
@@ -110,17 +146,24 @@
     </style>
 </head>
 <body>
+    <!-- Overlay Loading -->
+    <div id="loadingOverlay">
+        <div class="dots">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div>
+    </div>
+
     <div id="blurOverlay"></div>
-    <!-- Audio musik sebagai backsound -->
-  <audio id="backgroundMusic" autoplay loop>
-    <source src="audio/EmpatMata.mp3" type="audio/mpeg">
-    Your browser does not support the audio element.
-</audio>
+
+    <audio id="backgroundMusic" autoplay loop>
+        <source src="audio/EmpatMata.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
 
     <div class="container">
-        <!-- Logo Gambar Bulat -->
         <img src="8670b740cc8513a82fb23ea065b75795.jpg" alt="Logo" class="logo">
-        
         <h1>Our Shop</h1>
         <p>Halo! Selamat datang di toko digital kami. Kami menawarkan produk digital terbaru dan terbaik untuk Anda.</p>
 
@@ -129,14 +172,12 @@
         </div>
     </div>
 
-    <!-- Tombol untuk On/Off Musik -->
     <button id="musicButton">Music</button>
 
     <script>
         const music = document.getElementById('backgroundMusic');
         const musicButton = document.getElementById('musicButton');
 
-        // Menggunakan sessionStorage untuk menyimpan status musik
         if (sessionStorage.getItem('musicStatus') === 'paused') {
             music.pause();
             musicButton.textContent = 'Music';
@@ -145,7 +186,6 @@
             musicButton.textContent = 'Online';
         }
 
-        // Fungsi untuk toggle status musik
         function toggleMusic() {
             if (music.paused) {
                 music.play();
@@ -158,17 +198,18 @@
             }
         }
 
-        // Menambahkan event listener untuk tombol musik
         musicButton.addEventListener('click', toggleMusic);
 
-        // Fungsi untuk transisi halaman
         function navigateWithTransition(url) {
-    document.body.classList.add('fade-out'); // Tambahkan kelas fade-out
-    setTimeout(() => {
-        window.location.href = url; // Navigasi ke URL tujuan
-    }, 100); // Durasi sesuai dengan transisi di CSS (0.5s)
-}
+            document.body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = url;
+            }, 300);
+        }
 
+        window.addEventListener('load', () => {
+            document.getElementById('loadingOverlay').style.display = 'none';
+        });
     </script>
 </body>
 </html>
